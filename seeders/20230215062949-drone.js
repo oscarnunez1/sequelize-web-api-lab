@@ -7,7 +7,7 @@ module.exports = {
     const date = new Date()
 
     await queryInterface.bulkInsert('Drones', [{
-      name: 'Air 2S',
+      model: 'Air 2S',
       brand: 'DJI',
       releaseYear: '2021',
       createdAt: date,
