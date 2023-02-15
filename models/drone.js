@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Drone.init({
     model: DataTypes.STRING,
-    brand: DataTypes.STRING
+    brand: DataTypes.STRING,
+    releaseYear: DataTypes.INTEGER
+
   }, {
     sequelize,
     modelName: 'Drone',
