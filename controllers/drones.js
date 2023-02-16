@@ -11,6 +11,16 @@ const create = async (req, res) => {
   }
 }
 
+const index = async (req, res) => {
+  try {
+    const drones = await Drone.findAll()
+    res.status(200).json(drones)
+  } catch (error) {
+    res.status(500).jspn(error)
+  }
+}
+
 module.exports = {
   create,
+  index,
 }
