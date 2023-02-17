@@ -14,7 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Accessory.init({
-    remote: DataTypes.ENUM,
+    remote: {
+      type: DataTypes.ENUM('RC', 'RC PRO', 'RC-N1', 'RC Controller Plus')
+    },
     batteries: DataTypes.INTEGER,
     bag: DataTypes.BOOLEAN,
     droneId: DataTypes.INTEGER
