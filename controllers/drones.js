@@ -22,10 +22,9 @@ const index = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const drone = await Drone.update(
-      req.body,
-      { where: { id: req.params.id }, returning: true }
-    )
+    const drone = await Drone.findByPk(req.params.id)
+    drone.set(req.body)
+    await drone.save()
     res.status(200).json(drone)
   } catch (error) {
     res.status(200),json(error)
