@@ -13,7 +13,9 @@ const create = async (req, res) => {
 
 const index = async (req, res) => {
   try {
-    const drones = await Drone.findAll()
+    const drones = await Drone.findAll({
+      include: [{ model: Accessory, as: 'accessories' }]
+    })
     res.status(200).json(drones)
   } catch (error) {
     res.status(500).json(error)
