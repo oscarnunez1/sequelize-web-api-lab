@@ -5,8 +5,6 @@ const dronesCtrl = require('../controllers/drones.js')
 router.post('/', dronesCtrl.create)
 router.get('/', dronesCtrl.index)
 router.put('/:id', dronesCtrl.update)
-
-
-
+router.delete('/:id', dronesCtrl.delete)
 
 module.exports = router
