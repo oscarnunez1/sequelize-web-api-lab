@@ -20,7 +20,20 @@ const index = async (req, res) => {
   }
 }
 
+const update = async (req, res) => {
+  try {
+    const drone = await Drone.update(
+      req.body,
+      { where: { id: req.params.id }, returning: true }
+    )
+    res.status(200).json(drone)
+  } catch (error) {
+    res.status(200),json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
+  update,
 }
