@@ -16,7 +16,7 @@ const index = async (req, res) => {
     const drones = await Drone.findAll()
     res.status(200).json(drones)
   } catch (error) {
-    res.status(500).jspn(error)
+    res.status(500).json(error)
   }
 }
 
