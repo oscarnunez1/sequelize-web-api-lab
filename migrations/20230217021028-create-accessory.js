@@ -10,16 +10,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       remote: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM('RC-N1', 'RC', 'RC PRO', 'RC Controller Plus'),
+        defaultValue: 'RC-N1'
       },
       batteries: {
         type: Sequelize.INTEGER
       },
       bag: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
       },
       droneId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Drones',
+          key: 'id',
+        }
       },
       createdAt: {
         allowNull: false,
