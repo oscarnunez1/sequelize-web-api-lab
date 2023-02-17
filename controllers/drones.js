@@ -1,4 +1,4 @@
-const { Drone } = require("../models")
+const { Drone, Accessory } = require("../models")
 
 const create = async (req, res) => {
   try {
@@ -41,9 +41,20 @@ const deleteDrone = async (req, res) => {
   }
 }
 
+const addAccessory = async (req, res) => {
+  try {
+    req.body.droneId = req.params.id
+    const accessory = await Accessory.create(req.body)
+    res.status(200).json(accessory)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
   delete: deleteDrone,
+  addAccessory,
 }
