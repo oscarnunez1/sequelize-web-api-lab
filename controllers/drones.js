@@ -31,8 +31,20 @@ const update = async (req, res) => {
   }
 }
 
+const deleteDrone = async (req, res) => {
+  try {
+    const dronesRemoved = Drone.destroy(
+      { where: { id: req.params.id} }
+    )
+    res.status(200).json(dronesRemoved)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
+  delete: deleteDrone,
 }
