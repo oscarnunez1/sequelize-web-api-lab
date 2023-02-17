@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM('RC', 'RC PRO', 'RC-N1', 'RC Controller Plus')
     },
     batteries: DataTypes.INTEGER,
-    bag: DataTypes.BOOLEAN,
     droneId: {
       type: DataTypes.INTEGER,
       allowNull: false,
