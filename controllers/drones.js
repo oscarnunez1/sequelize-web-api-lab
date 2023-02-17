@@ -33,10 +33,9 @@ const update = async (req, res) => {
 
 const deleteDrone = async (req, res) => {
   try {
-    const dronesRemoved = Drone.destroy(
-      { where: { id: req.params.id} }
-    )
-    res.status(200).json(dronesRemoved)
+    const drone = await Drone.findByPk(req.params.id)
+    await drone.destroy()
+    res.status(200).json(drone)
   } catch (error) {
     res.status(500).json(error)
   }
