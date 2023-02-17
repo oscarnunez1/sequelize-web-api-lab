@@ -1,8 +1,6 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-const { toDefaultValue } = require('sequelize/types/utils');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Accessory extends Model {
     static associate(models) {
@@ -10,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       Accessory.belongsTo(models.Drone, {
         foreignKey: 'droneId'
       })
-
     }
   }
   Accessory.init({
