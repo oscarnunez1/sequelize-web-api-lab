@@ -19,7 +19,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     batteries: DataTypes.INTEGER,
     bag: DataTypes.BOOLEAN,
-    droneId: DataTypes.INTEGER
+    droneId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Drones',
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Accessory',
